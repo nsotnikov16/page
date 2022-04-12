@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{
+"title":"Фабрика подарков Сургут"
+})
+
+<body>
+	<div class="page background-lightgray">
+
+		@@include('html/header.html',{})
+
+		<main>
+			<section class="section background-lightgray">
+				<div class="page__container">
+					<h2 class="section__title">Подарки на <span class="red">новый год</span></h2>
+					@@include('html/catalog.html',{})
+					<div class="block__all">
+						<a href="#" class="btn btn_all">Перейти в каталог</a>
+					</div>
+				</div>
+			</section>
+			<section class="section background-lightgreen">
+				<div class="page__container">
+					<h2 class="section__title">Подарки на <span class="red">23 февраля</span></h2>
+					@@include('html/catalog.html',{})
+					<div class="block__all">
+						<a href="#" class="btn btn_all">Перейти в каталог</a>
+					</div>
+				</div>
+			</section>
+			<section class="section background-lightred">
+				<div class="page__container">
+					<h2 class="section__title">Подарки на <span class="red">8 марта</span></h2>
+					@@include('html/catalog.html',{})
+					<div class="block__all">
+						<a href="#" class="btn btn_all">Перейти в каталог</a>
+					</div>
+				</div>
+			</section>
+			<section class="section background-lightgray">
+				<div class="page__container">
+					<h2 class="section__title section__title_left">Мы фабрика подарков</h2>
+					@@include('html/we.html', {})
+				</div>
+			</section>
+			@@include('html/reviews.html',{})
+			<hr style="border: 0; border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+			@@include('html/suppliers.html',{})
+			@@include('html/faq.html',{})
+		</main>
+		@@include('html/footer.html',{})
+		<div id="photo" class="popup">
+			<div class="popup__container">
+				<div class="popup__content">
+					<img src="" alt="Image" class="popup__img">
+				</div>
+				<button class="popup__close">✖</button>
+			</div>
+		</div>
+
+		<div id="thanks" class="popup">
+			<div class="popup__container">
+				<div class="popup__content">
+					<p  class="thanks">Ваш вопрос отправлен успешно! <br> Мы с вами свяжемся в ближайшее время!</p>
+				</div>
+				<button class="popup__close">✖</button>
+			</div>
+		</div>
+
+
+	</div>
+	<script src="./js/swiper-bundle.min.js"></script>
+	<script src="./js/app.js"></script>
+</body>
+
+</html>
