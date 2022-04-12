@@ -2,142 +2,245 @@
   @font-face {
     font-family: $font_name;
     font-display: swap;
-    src: url(../fonts/#{$file_name}.woff2) format("woff2"), url(../fonts/#{$file_name}.woff) format("woff");
+    src: url(../fonts/#{$file_name}.woff2) format("woff2"),
+      url(../fonts/#{$file_name}.woff) format("woff");
     font-weight: #{$weight};
     font-style: #{$style};
   }
 }
-
-$main: #333333;
-$red: #e02f2f;
 
 @import "fonts";
 
 @import "normalize";
 
 body {
-  font-family: "Museo Sans Cyrl";
+  font-family: "Proxima Nova";
 }
 
-/* main {
-  margin-bottom: 82px;
-} */
 .page {
-  color: $main;
+  color: white;
   overflow: hidden;
+  background-image: url(../img/desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px 30px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 
-  &__container {
-    margin: 0 auto;
-    max-width: 1290px;
-
-    @media (max-width: 1310px) {
-      padding: 0 16px;
-    }
+  @media (max-width: 767px) {
+    padding: 20px 20px 17px;
+    height: 100%;
+    overflow: initial;
   }
 
   &__title {
     font-weight: 400;
-    font-size: 60px;
-    line-height: 64px;
-    font-family: "Tenor Sans";
+    font-size: 80px;
+    line-height: 120%;
+    font-family: "Prata";
     word-wrap: break-word;
+    text-align: center;
+    margin-bottom: 17px;
+    max-width: 772px;
 
-    @media (max-width: 1290px) {
-      font-size: calc(48px + (12 + 12 * 0.7) * ((100vw - 375px) / 1290));
-      line-height: calc(53px + (11 + 11 * 0.7) * ((100vw - 375px) / 1290));
-    }
-
-    @media (max-width: 480px) {
-      max-width: 90%;
+    @media (max-width: 767px) {
+      font-size: 42px;
+      margin-bottom: 30px;
     }
   }
 
   &__top {
-    padding: 38px 0 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media (max-width: 767px) {
+      padding: 10px 10px 0;
+      margin-bottom: 130px;
+    }
   }
 
-  &__top_new-year {
-    position: relative;
+  &__center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    background-image: url(../img/new-year.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    z-index: 2;
-    &::after {
-      z-index: -1;
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(180deg, rgba(239, 246, 255, 0) 0%, #eff6ff 100%);
+  &__subtitle {
+    margin-bottom: 53px;
+    max-width: 613px;
+    font-size: 30px;
+    line-height: 150%;
+    text-align: center;
+    @media (max-width: 767px) {
+      font-size: 18px;
+      line-height: 140%;
+      margin-bottom: 19px;
+      max-width: 95%;
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    @media (max-width: 767px) {
+      margin-top: 67px;
+      font-size: 14px;
     }
   }
 }
 
-/* Контент */
-@import "content";
+.btn {
+  min-width: 285px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #e90c6c 0%, #d31873 100%);
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  &:hover {
+    cursor: pointer;
+    background: white;
+    color: #e90c6c;
+  }
+  margin-right: 30px;
+  &:last-child {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
 
-/* Прочее */
-@import "other";
+  @media (max-width: 767px) {
+    min-width: 240px;
+    min-height: 60px;
+    margin-right: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 150%;
+  }
+}
 
-/* Хлебные крошки */
-@import "breadcrumbs";
+.address,
+.phone {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: '';
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    margin-right: 14px;
+    flex-shrink: 0;
+    display: block;
+  }
 
-/* Меню (топ, низ) */
-@import "menu";
+  @media (max-width: 767px) {
+    font-size: 18px;
+    line-height: 140%;
 
-/* Меню (левое) */
-@import "left-menu";
+    &::before {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+    }
+  }
+}
 
-/* Фильтр */
-@import "filter";
+.phone:hover::before {
+  border-radius: 50%;
+  box-shadow: 0px 0px 11px 9px rgb(233 12 108 / 40%);
+}
 
-/* Селекты */
-@import "selects";
+.address {
+  @media (max-width: 1024px) {
+    max-width: 440px;
+    align-items: initial;
+  }
+  @media (max-width: 767px) {
+    margin-bottom: 30px;
+  }
+}
 
-/* Пагинация */
-@import "pagination";
+.address::before {
+  background-image: url(../img/address.svg);
+}
+.phone::before {
+  background-image: url(../img/phone.svg);
+}
 
-/* Контейнер каталога */
-@import "container-catalog";
+.phone:hover {
+  color: #e90c6c;
+}
 
-/* Соц сети */
-@import "social";
+.social {
+  display: flex;
+  align-items: center;
+  margin-bottom: 38px;
+  @media (max-width: 767px) {
+    margin-bottom: 30px;
+  }
 
-/* Формы */
-@import "forms";
+  li {
+    margin-right: 40px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
-/* Каталог */
-@import "catalog";
+  a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    border-radius: 50%;
 
-/* Детальная страница */
-@import 'detail';
+    @media (max-width: 767px) {
+      width: 40px;
+      height: 40px;
+      background-size: 40px 40px;
+    }
+  }
+}
 
-/* Мы фабрика подарков */
-@import "we";
+.whatsapp {
+  background-image: url(../img/whatsapp.svg);
+  &:hover {
+    box-shadow: 0px 0px 11px 9px rgb(113 209 109 / 40%);
+  }
+}
 
-/* Поставщики */
-@import "suppliers";
+.telegram {
+  background-image: url(../img/telegaram.svg);
+  &:hover {
+    box-shadow: 0px 0px 11px 9px rgb(43 181 255 / 40%);
+  }
+}
 
-/* Корзина */
-@import 'cart';
+.viber {
+  background-image: url(../img/viber.svg);
+  &:hover {
+    box-shadow: 0px 0px 11px 9px rgb(158 74 223 / 40%);
+  }
+}
 
-/* Заказ */
-@import 'order';
-
-/* Отзывы и благодарности */
-@import "reviews";
-
-/* Шапка */
-@import "header";
-
-/* Подвал */
-@import "footer";
-
-/* Попапы */
-@import "popups";
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+}
