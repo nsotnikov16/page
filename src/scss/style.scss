@@ -28,11 +28,17 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  @media(max-width: 1024px) {
+    background-image: url(../img/tablet.png);
+  }
 
   @media (max-width: 767px) {
     padding: 20px 20px 17px;
     height: 100%;
     overflow: initial;
+  }
+  @media(max-width: 560px) {
+    background-image: url(../img/mobile.png);
   }
 
   &__title {
